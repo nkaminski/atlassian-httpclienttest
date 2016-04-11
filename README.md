@@ -1,8 +1,6 @@
 ### What is this repository for? ###
 
-* This tool is to check if your JIRA instance is affected by the bug [JRA-47568|https://jira.atlassian.com/browse/JRA-47568] and should be used in conjunction with the SSLPoke tool
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+* This tool is to check if your JIRA instance is affected by the bug [JRA-47568]|(https://jira.atlassian.com/browse/JRA-47568) and should be used in conjunction with the SSLPoke tool
 
 ### How do I get set up? ###
 
@@ -21,4 +19,4 @@ The expected output ie either a PKIX exception, indicating that your certificate
 
 ### How do I know if my truststore is ok? ###
 
-The [SSLPoke test|https://confluence.atlassian.com/kb/unable-to-connect-to-ssl-services-due-to-pkix-path-building-failed-779355358.html] does not use the Apache HTTPClient libraries and therefore will connect successfully if the truststore is correctly configured. 
+The [SSLPoke test|(https://confluence.atlassian.com/kb/unable-to-connect-to-ssl-services-due-to-pkix-path-building-failed-779355358.html) does not use the Apache HTTPClient libraries and therefore will connect successfully if the truststore is correctly configured. 
