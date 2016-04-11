@@ -1,0 +1,50 @@
+package com.atlassianlabs.sslclient;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        if (args.length != 1) {
+            System.out.println("Usage: java -jar httpclienttest-1.0.jar <https-host-url>:<port>");
+            System.out.println("Example:  java -jar httpclienttest-1.0.jar jira.atlassian.com:443");
+            System.exit(1);
+        }
+
+        HttpClient client = new DefaultHttpClient();
+        HttpGet request = new HttpGet("https://" + args[0]);
+        HttpResponse response = null;
+        try
+        {
+            response = client.execute(request);
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+
+        }
+        try
+        {
+            BufferedReader rd = new BufferedReader
+                    (new InputStreamReader(response.getEntity().getContent()));
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+
+        }
+
+        System.out.println("HTTPClient: Connection Successful to https://" + args[0]);
+
+    }
+}
