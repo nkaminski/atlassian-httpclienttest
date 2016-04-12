@@ -7,7 +7,7 @@
 1. Download the [JAR File](https://bitbucket.org/atlassianlabs/httpclienttest/downloads/httpclienttest-1.0.jar)
 2. Run the tool with the following command, replacing <TARGET-SERVER> and <TARGET-PORT> with your Server's hostname and port respectively. 
 
-     java -jar httpclienttest-1.0.jar <TARGET-SERVER>:<TARGET-PORT>
+	java -jar httpclienttest-1.0.jar <TARGET-SERVER>:<TARGET-PORT>
 
 	
 ### How do I use my own truststore with this tool? ###
