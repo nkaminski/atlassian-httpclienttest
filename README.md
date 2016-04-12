@@ -1,6 +1,6 @@
 ### What is this repository for? ###
 
-* This tool is to check if your JIRA instance is affected by the bug [JRA-47568]|(https://jira.atlassian.com/browse/JRA-47568) and should be used in conjunction with the SSLPoke tool.
+* This tool is to check if your JIRA instance is affected by the bug [JRA-47568](https://jira.atlassian.com/browse/JRA-47568) and should be used in conjunction with the SSLPoke tool.
 
 ### How can I download and use the tool? ###
 
