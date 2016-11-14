@@ -20,7 +20,6 @@ public class Main {
             System.exit(1);
         }
 
-//        HttpClient client = new DefaultHttpClient();
         HttpClient client = HttpClientBuilder.create().useSystemProperties().build();
         HttpGet request = new HttpGet("https://" + args[0]);
         HttpResponse response = null;
