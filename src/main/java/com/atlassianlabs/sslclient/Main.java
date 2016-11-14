@@ -4,6 +4,7 @@ import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.impl.client.HttpClientBuilder;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -19,26 +20,20 @@ public class Main {
             System.exit(1);
         }
 
-        HttpClient client = new DefaultHttpClient();
+//        HttpClient client = new DefaultHttpClient();
+        HttpClient client = HttpClientBuilder.create().useSystemProperties().build();
         HttpGet request = new HttpGet("https://" + args[0]);
         HttpResponse response = null;
-        try
-        {
+        try {
             response = client.execute(request);
-        }
-        catch (IOException e)
-        {
+        } catch (IOException e) {
             e.printStackTrace();
             throw new RuntimeException(e);
-
         }
-        try
-        {
+        try {
             BufferedReader rd = new BufferedReader
                     (new InputStreamReader(response.getEntity().getContent()));
-        }
-        catch (IOException e)
-        {
+        } catch (IOException e) {
             e.printStackTrace();
             throw new RuntimeException(e);
 
