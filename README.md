@@ -20,6 +20,7 @@ Run the command with additional JVM arguments as below:
 If the proxy is configured in environmental settings the JVM should pick it up, otherwise run it as below:
 ```sh
    java -Dhttp.proxyHost=proxy -Dhttp.proxyPort=3128 -Dhttps.proxyHost=proxy -Dhttps.proxyPort=3128 -jar httpclienttest-1.0.1.jar jira.atlassian.com:443 
+```
 
 ### What is the expected output ###
 
