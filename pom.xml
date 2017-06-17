@@ -6,7 +6,7 @@
 
     <groupId>com.atlassianlabs.ssltests</groupId>
     <artifactId>httpclienttest</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <dependencies>
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>

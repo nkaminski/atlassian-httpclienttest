@@ -21,15 +21,25 @@ public class Main {
     private static final Logger LOGGER = Logger.getLogger(Main.class);
 
     public static void main(String[] args) {
-
+        String baseurl;
         if (args.length != 1) {
-            System.out.println("Usage: java -jar httpclienttest-1.0.jar <https-host-url>:<port>");
-            System.out.println("Example:  java -jar httpclienttest-1.0.jar jira.atlassian.com:443");
+            System.out.println("Usage: java -jar httpclienttest-1.0.2.jar <host-url>:<port>");
+            System.out.println("Example:  java -jar httpclienttest-1.0.2.jar jira.atlassian.com:443");
+            System.out.println("          java -jar httpclienttest-1.0.2.jar http://jira.atlassian.com:8080/jira");
             System.exit(1);
         }
 
+        if (args[0].toLowerCase().startsWith("http://") || args[0].toLowerCase().startsWith("https://")) {
+            baseurl = args[0];
+        }
+        else
+        {
+            // default to https
+            baseurl = "https://" + args[0];
+        }
+
         HttpClient client = newHttpClient();
-        HttpGet request = new HttpGet("https://" + args[0]);
+        HttpGet request = new HttpGet(baseurl);
         HttpResponse response = null;
         try {
             response = client.execute(request);
@@ -46,7 +56,7 @@ public class Main {
         }
 
         System.out.println();
-        System.out.println("HTTPClient: Connection Successful to https://" + args[0]);
+        System.out.println("HTTPClient: Connection Successful to " + baseurl);
     }
 
     private static HttpClient newHttpClient() {
