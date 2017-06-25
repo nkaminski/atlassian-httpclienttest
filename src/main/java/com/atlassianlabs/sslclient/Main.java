@@ -15,27 +15,27 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.ProxySelector;
 import java.util.Arrays;
+import java.net.URL;
+import java.net.MalformedURLException;
 
 public class Main {
     private static final int DEFAULT_CONNECT_TIMEOUT_MS = 5000;
     private static final Logger LOGGER = Logger.getLogger(Main.class);
 
     public static void main(String[] args) {
-        String baseurl;
+        String baseurl = "";
         if (args.length != 1) {
             System.out.println("Usage: java -jar httpclienttest-1.0.2.jar <host-url>:<port>");
-            System.out.println("Example:  java -jar httpclienttest-1.0.2.jar jira.atlassian.com:443");
+            System.out.println("Example:  java -jar httpclienttest-1.0.2.jar https://jira.atlassian.com:443");
             System.out.println("          java -jar httpclienttest-1.0.2.jar http://jira.atlassian.com:8080/jira");
             System.exit(1);
         }
 
-        if (args[0].toLowerCase().startsWith("http://") || args[0].toLowerCase().startsWith("https://")) {
-            baseurl = args[0];
-        }
-        else
-        {
-            // default to https
-            baseurl = "https://" + args[0];
+        try {
+            baseurl = new URL(args[0]).toString();
+        } catch (MalformedURLException e) {
+            System.out.println(String.format("Error: Provided URL %s is an invalid URL", args[0]));
+            System.exit(1);
         }
 
         HttpClient client = newHttpClient();

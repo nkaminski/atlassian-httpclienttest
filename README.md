@@ -14,13 +14,13 @@
 ### How do I use my own truststore with this tool? ###
 Run the command with additional JVM arguments as below: 
 ```sh
-	java -Djavax.net.ssl.trustStore=/path/to/truststore.jks -jar httpclienttest-1.0.2.jar jira.atlassian.com:443 
+	java -Djavax.net.ssl.trustStore=/path/to/truststore.jks -jar httpclienttest-1.0.2.jar https://jira.atlassian.com:443 
 ```
 
 ### How do I use an outbound proxy with this tool? ###
 If the proxy is configured in environmental settings the JVM should pick it up, otherwise run it as below:
 ```sh
-   java -Dhttp.proxyHost=proxy -Dhttp.proxyPort=3128 -Dhttps.proxyHost=proxy -Dhttps.proxyPort=3128 -jar httpclienttest-1.0.2.jar jira.atlassian.com:443 
+   java -Dhttp.proxyHost=proxy -Dhttp.proxyPort=3128 -Dhttps.proxyHost=proxy -Dhttps.proxyPort=3128 -jar httpclienttest-1.0.2.jar https://jira.atlassian.com:443 
 ```
 
 ### What is the expected output ###
@@ -36,7 +36,7 @@ The [SSLPoke test)(https://confluence.atlassian.com/kb/unable-to-connect-to-ssl-
     git clone git@bitbucket.org:atlassianlabs/httpclienttest.git
 	cd httpclienttest
     mvn package 
-	java -jar target/httpclienttest-1.0.2.jar jira.atlassian.com:443
+	java -jar target/httpclienttest-1.0.2.jar https://jira.atlassian.com:443
 ```
 
 ### Apache - HttpClient ###
